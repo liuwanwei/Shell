@@ -6,6 +6,14 @@ function error_handler()
     exit
 }
 
+function create_working_directory()
+{
+    coding_dir=~/Coding
+    if ! [ -d $coding_dir ];then
+        mkdir $coding_dir
+    fi
+}
+
 function last_words()
 {
     echo "环境准备完毕，还有两件事情要做："
@@ -44,5 +52,7 @@ cp $hosts_origin $hosts_local
 if [ $? != 0 ];then
     error_handler
 fi
+
+create_working_directory
 
 last_words

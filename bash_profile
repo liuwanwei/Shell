@@ -19,6 +19,9 @@ alias sshl='ssh root@173.255.253.207'
 # 切换到老汤馆所在目录
 alias cdt='cd /Users/sungeo/www/tang/'
 
+# 切换到开发中的代码目录。
+alias cdc='cd /Users/sungeo/Coding/'
+
 # 查看当前目录的git状态。
 alias gst='git status'
 
