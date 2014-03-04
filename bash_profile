@@ -13,6 +13,8 @@ alias arst="echo $password | sudo apachectl restart"
 # 登录曦光阿里云VPS
 alias sshx='ssh server@115.29.148.60' 
 
+alias upmall='ssh root@115.29.148.60 "cd /opt/webroot/mallservice;git pull"'
+
 # 登录linode VPS
 alias sshl='ssh root@173.255.253.207' 
 
@@ -25,3 +27,5 @@ alias cdc='cd /Users/sungeo/Coding/'
 # 查看当前目录的git状态。
 alias gst='git status'
 
+# 只在当前目录下搜索目标文件（mac专用）
+alias findin='mdfind -onlyin . '
