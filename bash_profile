@@ -11,7 +11,7 @@ alias remote="echo $password | sudo -S cp /etc/hosts_remote /etc/hosts"
 alias arst="echo $password | sudo apachectl restart"
 
 # 登录曦光阿里云VPS
-alias sshx='ssh server@115.29.148.60' 
+alias sshx='ssh root@115.29.148.60' 
 
 alias upmall='ssh root@115.29.148.60 "cd /opt/webroot/mallservice;git pull"'
 
