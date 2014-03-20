@@ -22,6 +22,9 @@ alias sshl='ssh root@173.255.253.207'
 # 切换到老汤馆所在目录
 alias cdt='cd /Users/sungeo/www/tang/'
 
+# 切换到购物广场后台代码目录
+alias cdm='cd /Users/sungeo/www/malladmin/'
+
 # 切换到开发中的代码目录。
 alias cdc='cd /Users/sungeo/Coding/'
 
