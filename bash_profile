@@ -14,7 +14,7 @@ alias arst="echo $password | sudo apachectl restart"
 alias sshx='ssh root@115.29.148.60' 
 
 # 更新购物广场外网运行环境。
-alias upmall='ssh root@115.29.148.60 "cd /opt/webroot/mallservice;git pull;cd /opt/webroot/malladmin;git pull"'
+alias upmall='/usr/bin/upmall.sh'
 
 # 登录linode VPS
 alias sshl='ssh root@173.255.253.207' 

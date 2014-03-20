@@ -55,4 +55,6 @@ fi
 
 create_working_directory
 
+cp -f upmall.sh /usr/bin/
+
 last_words
