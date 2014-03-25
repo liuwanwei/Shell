@@ -15,6 +15,12 @@ elif [[ $1 = '-my' ]];then
         echo "更新本机iPhone代码 $dir"
         cd $dir
         git pull
+elif [[ $1 = '-hhy' ]];then
+        dir=~/Coding/huanghouyu/malldoc/
+        echo "更新本机文档 $dir"
+        cd $dir
+        git pull
+        open $dir
 else
         server='115.29.148.60'
         userAtServer='root'
