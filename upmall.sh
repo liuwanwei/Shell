@@ -28,6 +28,8 @@ else
         ssh $userAtServer@$server "cd /opt/webroot/mallservice;git pull"
         echo "更新 $server malladmin代码"
         ssh $userAtServer@$server "cd /opt/webroot/malladmin;git pull"
+        echo "更新 $server mallweb代码"
+        ssh $userAtServer@$server "cd /opt/webroot/mallweb;git pull"
 
         dir=~/www/malladmin
         echo "更新本机API代码 $dir" 
