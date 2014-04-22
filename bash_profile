@@ -12,6 +12,7 @@ alias arst="echo $password | sudo apachectl restart"
 
 # 登录曦光阿里云VPS
 alias sshx='ssh root@115.29.148.60' 
+alias sshxt='ssh root@115.28.107.48' 
 
 # 更新购物广场外网运行环境。
 alias upmall='/usr/bin/upmall.sh'
