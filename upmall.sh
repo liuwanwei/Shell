@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# 自动更新代码，能更新阿里云服务器和本地开发环境两部分的代码。
+# 收到CTRL+C后，终止一切后续操作。
+trap killGroup SIGINT
+killGroup(){
+        # 杀死当前进程的一切子进程（进程组）
+        kill 0
+}
 
+# 更新本地代码。
 updateLocalCode(){
         localDir=$1
 
@@ -12,30 +18,66 @@ updateLocalCode(){
         date
 }
 
+# 更新服务器上代码。
 updateRemoteCode(){
-        server=$1
-        user=$2
-        remoteDir=$3
+        server='115.29.148.60'
+        user='root'
+        remoteDir=$1
 
         echo "[37;42m ********更新服务********$remoteDir [0m"
         ssh $user@$server "cd $remoteDir;git pull"
         date
 }
 
-if [[ $1 = '-lxb' ]];then
-        updateLocalCode ~/Coding/liangxiaobo/malladmin/
-elif [[ $1 = '-my' ]];then
-        updateLocalCode ~/Coding/maoyu417/mallios/
-elif [[ $1 = '-hhy' ]];then
-        updateLocalCode ~/Coding/huanghouyu/malldoc/
-else
-        server='115.29.148.60'
-        user='root'
-        updateRemoteCode $server $user "/opt/webroot/mallservice"
-        updateRemoteCode $server $user "/opt/webroot/malladmin"
-        updateRemoteCode $server $user "/opt/webroot/mallweb"
+while getopts "l:s:" arg
+do 
+        case $arg in 
+                l)
+                        # 更新本机代码入口。 
+                        case $OPTARG in
+                                "lxb")
+                                    updateLocalCode ~/Coding/liangxiaobo/malladmin/
+                                    updateLocalCode ~/Coding/liangxiaobo/mallservice/
+                                    ;;
+                                "my")
+                                    updateLocalCode ~/Coding/maoyu417/mallios/
+                                    updateLocalCode ~/Coding/maoyu417/mallandroid_shop/
+                                    ;;
+                                "hhy")
+                                    updateLocalCode ~/Coding/huanghouyu/malldoc/
+                                    ;;
+                                "lww")
+                                    updateLocalCode ~/www/malladmin/
+                                    ;;
+                                ?)
+                                    echo "unknown args"
+                                    ;;
+                        esac
+                        ;;
+                s)
+                        # 更新服务器代码入口。
+                        case $OPTARG in
+                                "admin")
+                                    updateRemoteCode "/opt/webroot/malladmin"
+                                    ;;
+                                "service")
+                                    updateRemoteCode "/opt/webroot/mallservice"
+                                    ;;
+                                "web")
+                                    updateRemoteCode "/opt/webroot/mallweb"
+                                    ;;
+                                "all")
+                                    updateRemoteCode "/opt/webroot/malladmin"
+                                    updateRemoteCode "/opt/webroot/mallservice"
+                                    updateRemoteCode "/opt/webroot/mallweb"
+                                    ;;
+                                ?)
+                                    echo "unknown args"
+                                    ;;
+                        esac
+                        ;;
+        esac
+done
 
-        updateLocalCode ~/www/malladmin
-fi
 
 
