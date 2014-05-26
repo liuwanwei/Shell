@@ -29,7 +29,7 @@ updateRemoteCode(){
         date
 }
 
-while getopts "l:s:" arg
+while getopts "l:s:i" arg
 do 
         case $arg in 
                 l)
@@ -76,6 +76,12 @@ do
                                     ;;
                         esac
                         ;;
+                i)
+                        # 安装本脚本到可执行目录。
+                        sudo cp -f `basename $0` /usr/bin
+                        echo "安装脚本到 /usr/bin OK"
+                        ;;
+                    
         esac
 done
 
