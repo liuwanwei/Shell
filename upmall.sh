@@ -72,7 +72,7 @@ do
                     updateRemoteCode "/opt/webroot/mallservice"
                     updateRemoteCode "/opt/webroot/mallweb"
                     ;;
-                "version")
+                "app")
                     updateRemoteCode /opt/webroot/malldownload
                     ;;
                 ?)
