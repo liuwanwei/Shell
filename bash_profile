@@ -34,3 +34,6 @@ alias gst='git status'
 
 # 只在当前目录下搜索目标文件（mac专用）
 alias findin='mdfind -onlyin . '
+
+# 使用前先安装：sudo gem install terminal-notifier
+alias done='terminal-notifier -message "任务完成" -title "控制台"'

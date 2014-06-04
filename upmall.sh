@@ -48,6 +48,7 @@ do
                     ;;
                 "lww")
                     updateLocalCode ~/www/malladmin/
+                    updateLocalCode ~/Coding/mallios/
                     ;;
                 ?)
                     echo "unknown args"
@@ -70,6 +71,9 @@ do
                     updateRemoteCode "/opt/webroot/malladmin"
                     updateRemoteCode "/opt/webroot/mallservice"
                     updateRemoteCode "/opt/webroot/mallweb"
+                    ;;
+                "version")
+                    updateRemoteCode /opt/webroot/malldownload
                     ;;
                 ?)
                     echo "unknown args"

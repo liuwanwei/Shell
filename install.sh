@@ -18,7 +18,7 @@ function last_words()
 {
     echo "环境准备完毕，还有两件事情要做："
     echo "1.修改 $hosts_local 和 $hosts_remote 的内容,分别对应本地环境和生产环境"
-    echo "2.修改 $target_profile , 将password变量修改为当前用户密码。"
+    echo "2.修改 $target_profile , 将password变量修改为当前用户密码，这样才能在sudo时自动输入密码。"
 }
 
 origin_profile=./bash_profile
