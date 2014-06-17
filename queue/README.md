@@ -1,7 +1,7 @@
 ###0.运行环境简介
 运行环境分为三个部分：  
-* client，向web服务器发送请求，运行在PHP web service中。  
-* msgqueue，请求缓存队列，也是个router，能将请求平均分配到worker，运行在PHP CLI模式。  
+* client，向web服务器发送请求，运行在PHP web service中。默认连接http://localhost:5559。
+* msgqueue，请求缓存队列，也是个router，能将请求平均分配到worker，运行在PHP CLI模式5559端口。  
 * worker，真正发送短信的，可以有多个worker存在，提升发送效率，运行在PHP CLI模式。
 
 ###1.msgqueue的问题  
