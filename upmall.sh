@@ -29,6 +29,18 @@ updateRemoteCode(){
     date
 }
 
+updateRemoteBranch(){
+    server='115.29.148.60'
+    user='root'
+    remoteDir=$1
+    branch=$2
+
+    echo "[37;42m ********更新服务********$remoteDir [0m"
+    ssh $user@$server "cd $remoteDir;git checkout $branch; git pull origin $branch:$branch"
+    date
+}
+
+
 while getopts "l:s:i" arg
 do 
     case $arg in 
@@ -78,8 +90,8 @@ do
                 "app")
                     updateRemoteCode /opt/webroot/mallapp
                     ;;
-                ?)
-                    echo "unknown args"
+                *)
+                    updateRemoteBranch /opt/webroot/malladmin-branch/$OPTARG  $OPTARG
                     ;;
             esac
             ;;
