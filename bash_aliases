@@ -1,0 +1,7 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias gst='git status'
+alias cdw='cd /opt/webroot'
+alias cda='cd /alidata/server/httpd'
+alias arestart='/alidata/server/httpd/bin/apachectl restart'
