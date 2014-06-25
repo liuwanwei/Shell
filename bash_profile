@@ -37,3 +37,7 @@ alias findin='mdfind -onlyin . '
 
 # 使用前先安装：sudo gem install terminal-notifier
 alias done='terminal-notifier -message "任务完成" -title "控制台"'
+
+############# 以下是 阿里云服务器环境快捷方式 #############
+alias cda='cd /alidata/server/httpd'
+alias cdw='cd /opt/webroot'
