@@ -40,6 +40,22 @@ class YunPianSms{
             return $this->sockPost(self::$sendUrl, $postString);
         }
 
+        /* 
+         * 发送“返还金币”提示短信接口。 
+         * $mobile  接收短信手机号，11位数字，暂不支持外国手机。
+         * $point    返还的积分，string类型。
+         * $extra   预留扩展字段，目前必须传入店铺名字。
+         */ 
+        public function returnPoint($mobile, $point, $extra){
+            $shop = empty($extra) ? self::$appName : $extra;
+
+            $tplValue = "#shop#=$shop&#point#=$point&#company#=".self::$ourCompany;
+            $postString = $this->makePostContent("400145", $tplValue, $mobile);
+
+            return $this->sockPost(self::$sendUrl, $postString);
+        }
+
+
         /*
          * 内部公共接口：封装发送的POST数据内容。
          */
