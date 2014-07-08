@@ -1,8 +1,8 @@
 ###0.运行环境简介
 运行环境分为三个部分：  
-* client，向web服务器发送请求，运行在PHP web service中。默认连接http://localhost:5559。
-* msgqueue，请求缓存队列，也是个router，能将请求平均分配到worker，运行在PHP CLI模式5559端口。  
-* worker，真正发送短信的，可以有多个worker存在，提升发送效率，运行在PHP CLI模式。
+* client：在malladmin中封装成了扩展模块Sms。通过连接http://localhost:5559，向msgqueue发请求。
+* msgqueue：短信请求队列，运行在PHP CLI模式，使用TCP 5559端口跟client通信。它通过TCP 5560端口将请求平均分配到worker。  
+* worker：真正发送短信的，运行在PHP CLI模式，使用TCP 5560端口侦听请求。可以有多个worker来解决短信并发问题。
 
 ###1.msgqueue 
 鉴于时间上的匮乏，我无法深入查找zguide中msgqueue.php无法正常运行的错误。
