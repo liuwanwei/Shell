@@ -55,6 +55,17 @@ class YunPianSms{
             return $this->sockPost(self::$sendUrl, $postString);
         }
 
+        /* 
+         * 发送“审核状态”提示短信接口。 
+         * $mobile  接收短信手机号，11位数字，暂不支持外国手机。
+         * $result  审核消息，string类型。
+         */ 
+        public function review($mobile, $result){
+            $tplValue = "#result#=$result&#company#=".self::$ourCompany;
+            $postString = $this->makePostContent("400199", $tplValue, $mobile);
+
+            return $this->sockPost(self::$sendUrl, $postString);
+        }
 
         /*
          * 内部公共接口：封装发送的POST数据内容。

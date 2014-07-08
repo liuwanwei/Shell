@@ -50,7 +50,13 @@ function entry($cmd){
             $point = $parameters['point'];
             $shop = $parameters['shop'];
             $sms = new YunPianSms;
-            return $sms->returnGold($mobile, $point, $shop); 
+            return $sms->returnPoint($mobile, $point, $shop); 
+        }
+        case 'Review':{
+            $mobile = $parameters['mobile'];
+            $result = $parameters['result'];
+            $sms = new YunPianSms;
+            return $sms->review($mobile, $result); 
         }
     	default:{
     		echo "短信发送协议中的req参数错误：$req";
