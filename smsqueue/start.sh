@@ -1,6 +1,6 @@
 #!/bin/bash
 
-basePath=/opt/zeromq/shell/queue
+basePath=/opt/zeromq/shell/smsqueue
 msgqueueBin=$basePath/msgqueue
 workderScript=$basePath/SmsWorker.php
 
