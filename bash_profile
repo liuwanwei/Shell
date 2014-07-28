@@ -41,3 +41,6 @@ alias done='terminal-notifier -message "任务完成" -title "控制台"'
 ############# 以下是 阿里云服务器环境快捷方式 #############
 alias cda='cd /alidata/server/httpd'
 alias cdw='cd /opt/webroot'
+
+############# hiwifi开发环境，linode服务器    #############
+alias sshh='ssh liuwanwei@106.187.50.35'
