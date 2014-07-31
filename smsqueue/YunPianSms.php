@@ -46,10 +46,10 @@ class YunPianSms{
          * $point    返还的积分，string类型。
          * $extra   预留扩展字段，目前必须传入店铺名字。
          */ 
-        public function returnPoint($mobile, $point, $extra, $shortenUrl){
+        public function returnPoint($mobile, $point, $extra, $shortenUrl, $pointTotal){
             $shop = empty($extra) ? self::$appName : $extra;
 
-            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#company#=".self::$ourCompany;
+            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#company#=".self::$ourCompany;
             $postString = $this->makePostContent("400145", $tplValue, $mobile);
 
             return $this->sockPost(self::$sendUrl, $postString);

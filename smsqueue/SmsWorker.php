@@ -50,8 +50,9 @@ function entry($cmd){
             $point = $parameters['point'];
             $shop = $parameters['shop'];
             $shorten = $parameters['shortenUrl'];
+            $pointTotal = $parameters['pointTotal'];
             $sms = new YunPianSms;
-            return $sms->returnPoint($mobile, $point, $shop, $shortenUrl); 
+            return $sms->returnPoint($mobile, $point, $shop, $shortenUrl, $pointTotal); 
         }
         case 'Review':{
             $mobile = $parameters['mobile'];
