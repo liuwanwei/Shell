@@ -21,10 +21,10 @@ function killProcess()
 
 killProcess
 
-echo "启动服务队列进程"
+echo "启动消息队列"
 $msgQueuePath > /dev/null 2>&1 &
 
-# 启动worker线程来发短信，第一个参数可以用来指定worker进程个数
+# 脚本参数指定工作进程个数
 if [ $# -le 0 ];then
 	workerNumber=2
 else
