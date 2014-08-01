@@ -1,15 +1,14 @@
 #!/bin/bash
 
 basePath=/opt/zeromq/shell/smsqueue
-msgqueueBin=$basePath/msgqueue
-workderScript=$basePath/SmsWorker.php
+msgqueueDir=$basePath/msgqueue
+workerScriptDir=$basePath/SmsWorker.php
 
-count=`ps ax | grep msgqueue | grep -v grep | wc -l`
-if [ $count -gt 0 ];then
-	echo "msgqueue already exist!"
-else
-	$msgqueueBin > /dev/null 2>&1 &
-fi
+pkill -f msgqueue
+$msgqueueDir > /dev/null 2>&1 &
 
-/alidata/server/php/bin/php $workderScript  >/dev/null 2>&1 &
+# 启动两个worker线程来发短信
+pkill -f SmsWorkder.php
+/alidata/server/php/bin/php $workerScriptDir  >/dev/null 2>&1 &
+/alidata/server/php/bin/php $workerScriptDir  >/dev/null 2>&1 &
 
