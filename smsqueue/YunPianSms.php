@@ -100,9 +100,25 @@ class YunPianSms{
             while (!feof($fp)) {
                     $data .= fgets($fp,4096);
             }
+
+            $this->log($data);
+
             return $data;
         }
+
+        function log(){
+            $ident = 'sms';
+            $facility = LOG_LOCAL4;
+            $priority = LOG_INFO;
+            define_syslog_variables();
+            openlog($ident, NULL, $facility);
+            syslog($priority, 'This is a test');
+            closelog();
+        }
 }
+
+$yunpian = new YunPianSms;
+$yunpian->log();
 
 
 ?>
