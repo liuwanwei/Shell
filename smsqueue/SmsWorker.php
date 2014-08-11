@@ -54,6 +54,15 @@ function entry($cmd){
             $sms = new YunPianSms;
             return $sms->returnPoint($mobile, $point, $shop, $shortenUrl, $pointTotal); 
         }
+        case 'BdgReturnPoint':{
+            $mobile = $parameters['mobile'];
+            $point = $parameters['point'];
+            $shop = $parameters['shop'];
+            $shortenUrl = $parameters['shortenUrl'];
+            $pointTotal = $parameters['pointTotal'];
+            $sms = new YunPianSms;
+            return $sms->bdgReturnPoint($mobile, $point, $shop, $shortenUrl, $pointTotal); 
+        }
         case 'Review':{
             $mobile = $parameters['mobile'];
             $result = $parameters['result'];
