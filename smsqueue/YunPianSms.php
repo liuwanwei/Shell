@@ -50,7 +50,7 @@ class YunPianSms{
             $shop = empty($extra) ? self::$appName : $extra;
 
             $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#company#=".self::$ourCompany;
-            $postString = $this->makePostContent("400145", $tplValue, $mobile);
+            $postString = $this->makePostContent("421675", $tplValue, $mobile);
 
             return $this->sockPost(self::$sendUrl, $postString);
         }
