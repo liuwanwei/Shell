@@ -64,7 +64,7 @@ class YunPianSms{
         public function bdgReturnPoint($mobile, $point, $extra, $shortenUrl, $pointTotal){
             $shop = empty($extra) ? self::$appName : $extra;
 
-            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#company#=".self::$ourCompany;
+            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal";
             $postString = $this->makePostContent("421675", $tplValue, $mobile);
 
             return $this->sockPost(self::$sendUrl, $postString);
