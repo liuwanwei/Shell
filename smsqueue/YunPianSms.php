@@ -77,13 +77,11 @@ class YunPianSms{
          * $extra   预留扩展字段，目前必须传入店铺名字。
          * $shortenUrl 域名
          * $pointTotal 总积分
-         * $pointCount 本周积分
-         * $ranking 本店排名
          */ 
-        public function bdgPointNotify($mobile, $point, $extra, $shortenUrl, $pointTotal, $pointCount, $ranking){
+        public function bdgPointNotify($mobile, $point, $extra, $shortenUrl, $pointTotal){
             $shop = empty($extra) ? self::$appName : $extra;
 
-            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#pointCount#=$pointCount&#ranking#=$ranking";
+            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal";
             $postString = $this->makePostContent("447907", $tplValue, $mobile);
 
             return $this->sockPost(self::$sendUrl, $postString);
