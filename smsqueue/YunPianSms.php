@@ -74,11 +74,13 @@ class YunPianSms{
          * 发送“返还金币”提示短信接口。 
          * $mobile  接收短信手机号，11位数字，暂不支持外国手机。
          * $point    返还的积分，string类型。
+         * $extra   预留扩展字段，目前必须传入店铺名字。
+         * $shortenUrl 域名
+         * $pointTotal 总积分
          * $pointCount 本周积分
          * $ranking 本店排名
-         * $extra   预留扩展字段，目前必须传入店铺名字。
          */ 
-        public function bdgPointNotify($mobile, $point, $shortenUrl, $pointTotal, $pointCount, $ranking, $extra){
+        public function bdgPointNotify($mobile, $point, $extra, $shortenUrl, $pointTotal, $pointCount, $ranking){
             $shop = empty($extra) ? self::$appName : $extra;
 
             $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#pointCount#=$pointCount&#ranking#=$ranking";

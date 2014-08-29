@@ -72,7 +72,7 @@ function entry($cmd){
             $pointCount = $parameters['pointCount'];
             $ranking = $parameters['ranking'];
             $sms = new YunPianSms;
-            return $sms->bdgPointNotify($mobile, $point, $shortenUrl, $pointTotal, $pointCount, $ranking, $shop); 
+            return $sms->bdgPointNotify($mobile, $point, $shop, $shortenUrl, $pointTotal, $pointCount, $ranking); 
         }
         case 'Review':{
             $mobile = $parameters['mobile'];
