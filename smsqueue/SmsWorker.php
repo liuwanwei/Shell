@@ -72,6 +72,16 @@ function entry($cmd){
             $sms = new YunPianSms;
             return $sms->bdgPointNotify($mobile, $point, $shop, $shortenUrl, $pointTotal); 
         }
+        case 'BdgDeductPointNotify':{
+            $mobile = $parameters['mobile'];
+            $point = $parameters['point'];
+            $shop = $parameters['shop'];
+            $shortenUrl = $parameters['shortenUrl'];
+            $pointTotal = $parameters['pointTotal'];
+            $goods = $parameters['goods'];
+            $sms = new YunPianSms;
+            return $sms->bdgDeductPointNotify($mobile, $point, $shop, $shortenUrl, $pointTotal, $goods); 
+        }
         case 'Review':{
             $mobile = $parameters['mobile'];
             $result = $parameters['result'];
