@@ -88,6 +88,24 @@ class YunPianSms{
         }
 
         /* 
+         * 发送“代扣积分”提示短信接口。 
+         * $mobile  接收短信手机号，11位数字，暂不支持外国手机。
+         * $point    返还的积分，string类型。
+         * $extra   预留扩展字段，目前必须传入店铺名字。
+         * $shortenUrl 域名
+         * $pointTotal 总积分
+         * $goods 商品
+         */ 
+        public function bdgDeductPointNotify($mobile, $point, $extra, $shortenUrl, $pointTotal, $goods){
+            $shop = empty($extra) ? self::$appName : $extra;
+
+            $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#goods#=$goods";
+            $postString = $this->makePostContent("455605", $tplValue, $mobile);
+
+            return $this->sockPost(self::$sendUrl, $postString);
+        }
+
+        /* 
          * 发送“审核状态”提示短信接口。 
          * $mobile  接收短信手机号，11位数字，暂不支持外国手机。
          * $result  审核消息，string类型。
