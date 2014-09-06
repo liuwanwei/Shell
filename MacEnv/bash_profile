@@ -10,9 +10,9 @@ alias remote="echo $password | sudo -S cp /etc/hosts_remote /etc/hosts"
 # 重启阿帕奇服务器。
 alias arst="echo $password | sudo apachectl restart"
 
-# 登录曦光阿里云VPS
-alias sshx='ssh root@115.29.148.60' 
-alias sshxt='ssh root@115.28.107.48' 
+# 登录曦光阿里云VPS，需要配置好ssh public key(~/.ssh/config)。
+alias sshx='ssh main_root' 
+alias sshxt='ssh test_root' 
 
 # 更新购物广场外网运行环境。
 alias upmall='/usr/bin/upmall.sh'
