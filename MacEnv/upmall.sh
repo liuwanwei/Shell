@@ -29,6 +29,14 @@ updateRemoteCode(){
     date
 }
 
+updateTangCode(){
+    remoteDir=$1
+
+    echo "[37;42m ********更新服务********$remoteDir [0m"
+    ssh linode_root "cd $remoteDir;git pull"
+    date
+}
+
 updateRemoteBranch(){
     server='115.29.148.60'
     user='root'
@@ -89,6 +97,9 @@ do
                     ;;
                 "app")
                     updateRemoteCode /opt/webroot/mallapp
+                    ;;
+                "tang")
+                    updateTangCode "/opt/webroot/tang"
                     ;;
                 *)
                     updateRemoteBranch /opt/webroot/malladmin-branch/$OPTARG  $OPTARG
