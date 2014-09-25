@@ -82,7 +82,7 @@ class YunPianSms{
             $shop = empty($extra) ? self::$appName : $extra;
 
             $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal";
-            $postString = $this->makePostContent("447907", $tplValue, $mobile);
+            $postString = $this->makePostContent("471993", $tplValue, $mobile);
 
             return $this->sockPost(self::$sendUrl, $postString);
         }
@@ -100,7 +100,7 @@ class YunPianSms{
             $shop = empty($extra) ? self::$appName : $extra;
 
             $tplValue = "#shop#=$shop&#point#=$point&#shortenUrl#=$shortenUrl&#pointTotal#=$pointTotal&#goods#=$goods";
-            $postString = $this->makePostContent("455605", $tplValue, $mobile);
+            $postString = $this->makePostContent("471999", $tplValue, $mobile);
 
             return $this->sockPost(self::$sendUrl, $postString);
         }
