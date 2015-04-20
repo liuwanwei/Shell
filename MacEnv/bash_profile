@@ -44,3 +44,6 @@ alias cdw='cd /opt/webroot'
 
 ############# hiwifi开发环境，linode服务器    #############
 alias sshh='ssh root@106.187.50.35'
+
+############# 半点阿里云服务器                #############
+alias sshb='ssh root@42.96.170.202'

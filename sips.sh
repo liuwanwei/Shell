@@ -1,8 +1,9 @@
 #!/bin/bash
+# 放弃使用，用Python重写，位置在 pyscript/helper/appicon.py
 originImageName=$1
 type=$2 # -icon or -image
 if [ "$type" = "" ];then
-    echo 'Usage: ./sips imageName -[icon|image]'
+    echo 'Usage: ./sips imageName -[i|l]'
     exit
 fi
 
@@ -24,16 +25,28 @@ function resampleImage()
     sips -z $height $width $file --out "Image-$width-$height-$file"
 }
 
-if [ $type = "-icon" ];then 
-    # App icon
-    #resampleAppIcon $originImageName 60
-    #resampleAppIcon $originImageName 120
-    #resampleAppIcon $originImageName 180
+if [ $type = "-i" ];then 
+    # iPhone icons
+    resampleAppIcon $originImageName (29*2)
+    resampleAppIcon $originImageName 29*3
 
-    resampleAppIcon $originImageName 58
-    resampleAppIcon $originImageName 80
-    resampleAppIcon $originImageName 120
-else
+    resampleAppIcon $originImageName 40*2
+    resampleAppIcon $originImageName 40*3
+
+    resampleAppIcon $originImageName 60*2
+    resampleAppIcon $originImageName 60*3
+
+    # iPad icons
+    resampleAppIcon $originImageName 29*1
+    #resampleAppIcon $originImageName 29*2  omited, same as iPhone icon 29*2
+
+    resampleAppIcon $originImageName 40*1
+    #resampleAppIcon $originImageName 40*2  omited, same as iPhone icon 40*2
+
+    resampleAppIcon $originImageName 76*1
+    resampleAppIcon $originImageName 76*2
+
+elif [ $type = '-l' ];then
     # Launch image
     resampleImage $originImageName 640 960   # 2x
     resampleImage $originImageName 640 1136  # Retina 4
