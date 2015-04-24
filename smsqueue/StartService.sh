@@ -9,7 +9,7 @@ PHP=/alidata/server/php/bin/php
 msgQueue=msgqueue
 worker=SmsWorker.php
 
-basePath=${PWD}
+basePath=$(dirname $0)
 msgQueuePath=$basePath/$msgQueue
 workerPath=$basePath/$worker
 
