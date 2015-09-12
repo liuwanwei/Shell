@@ -28,11 +28,11 @@ while (true) {
 	$request = $responder->recv();
 	printf ("Received request: [%s]\n", $request);
 
-	sscanf($request, "%s %s", $type, $alias);
+	sscanf($request, "%s %s %s %s", $type, $alias, $mpId, $userId);
 
 	$responder->send($alias);
 
-	$command = $alias . " " . $type;
+	$command = $alias . " " . $userId . ' ' . $mpId;
 	echo "Publish: ". $command . "\n";
 	$publisher->send($command);
 }
