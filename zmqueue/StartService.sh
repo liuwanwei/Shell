@@ -3,13 +3,14 @@
 # 短信发送服务启动脚本：包含启动一个router进程和多个worker进程。
 
 
-
+# 必须这个，配置好了 ZeroMQ php 模块的
 PHP=/alidata/server/php/bin/php
 
 msgQueue=msgqueue
 worker=SmsWorker.php
+zhiqu=DispatchPaper.php
 
-basePath=${PWD}
+basePath=$(dirname $0)
 msgQueuePath=$basePath/$msgQueue
 workerPath=$basePath/$worker
 
@@ -17,12 +18,16 @@ function killProcess()
 {
 	pkill -f $msgQueue
 	pkill -f $worker
+	pkill -f $zhiqu
 }
 
 killProcess
 
 echo "启动消息队列"
 $msgQueuePath > /dev/null 2>&1 &
+
+echo "启动发纸器"
+$PHP $zhiqu >/dev/null 2>&1 &
 
 # 脚本参数指定工作进程个数
 if [ $# -le 0 ];then
