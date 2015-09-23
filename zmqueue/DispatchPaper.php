@@ -29,11 +29,11 @@ while (true) {
 	$request = $responder->recv();
 	printf ("Received request: [%s]\n", $request);
 
-	sscanf($request, "%s %s %s %s", $type, $alias, $mpId, $userId);
+	sscanf($request, "%s %s %s %s %s", $type, $alias, $mpId, $userId, $takenRecordId);
 
-	// $responder->send($alias);
+	// TODO: 判断 $type == 'dispatch'
 
-	$command = $alias . " " . $userId . ' ' . $mpId;
+	$command = $alias . " " . $userId . ' ' . $mpId . ' ' . $takenRecordId;
 	echo "Publish: ". $command . "\n";
 	$publisher->send($command);
 }
