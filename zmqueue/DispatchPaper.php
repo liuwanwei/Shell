@@ -19,7 +19,8 @@ $publisher->bind("tcp://*:4446");
 $publisher->bind("ipc://papers.ipc");
 
 // 跟 Web Service 通信的端口
-$responder = new ZMQSocket($context, ZMQ::SOCKET_REP);
+// $responder = new ZMQSocket($context, ZMQ::SOCKET_REP);
+$responder = new ZMQSocket($context, ZMQ::SOCKET_PULL);
 $responder->bind("tcp://*:4445");
 
 echo "Start!\n";
@@ -28,11 +29,11 @@ while (true) {
 	$request = $responder->recv();
 	printf ("Received request: [%s]\n", $request);
 
-	sscanf($request, "%s %s %s %s", $type, $alias, $mpId, $userId);
+	sscanf($request, "%s %s %s %s %s", $type, $alias, $mpId, $userId, $takenRecordId);
 
-	$responder->send($alias);
+	// TODO: 判断 $type == 'dispatch'
 
-	$command = $alias . " " . $userId . ' ' . $mpId;
+	$command = $alias . " " . $userId . ' ' . $mpId . ' ' . $takenRecordId;
 	echo "Publish: ". $command . "\n";
 	$publisher->send($command);
 }
