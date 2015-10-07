@@ -5,6 +5,15 @@ secret=ba8eb909b475c68abb58579cf4b16666f95b4ab5c9bcafe08c1501fa1626
 
 function connect(){
     scutil --nc start $vpn --secret $secret
+
+    if poll_untile_connected;then
+        echo "Connected to $vpn!"
+        exit 0
+    else
+        echo "Not connected!"
+        scutil --nc stop $vpn
+        exit 1
+    fi
 }
 
 function is_connectd(){
@@ -24,13 +33,22 @@ function poll_untile_connected(){
     [ $loops -le $max_loops ]
 }
 
-connect
-
-if poll_untile_connected;then
-    echo "Connected to $vpn!"
-    exit 0
-else
-    echo "Not connected!"
+function disconnect(){
     scutil --nc stop $vpn
-    exit 1
-fi
+}
+
+case "$1" in
+    start)
+        connect
+        ;;
+    stop)
+        disconnect
+        ;;
+    *)
+        echo "Usage: vpnctrl.sh {start|stop}" >&2
+        exit 1
+        ;;
+esac
+
+
+exit 0
