@@ -84,6 +84,9 @@ do
                 "root")
                     updateRemoteCode "/opt/webroot/zhiqu"
                     ;;
+                "longmentv")
+                    updateRemoteCode "/opt/webroot/longmentv"
+                    ;;
                 "tang")
                     updateTangCode "/opt/webroot/tang"
                     ;;
