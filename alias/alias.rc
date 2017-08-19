@@ -1,0 +1,27 @@
+# for ssh
+alias sshj='ssh root@120.25.104.45'
+alias sshw='ssh root@121.41.26.86'
+alias sshx='ssh root@115.29.148.60'
+alias sshr='ssh msbox@tv.haly12333.org.cn'
+alias sshp='ssh pi@192.168.1.243'
+
+
+# for git
+alias pull='git pull origin master'
+alias push='git push origin master'
+alias gst='git status'
+
+alias ip='ifconfig'
+alias p3='python3'
+
+# for Mac
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias safari='open -a safari'
+alias zh='safari https://www.zhihu.com'
+alias wb='safari https://weibo.com'
+
+# for directory
+alias cdc="cd ~/Coding"
+alias cdn="cd ~/Coding/nodejs"
+alias cds='cd ~/Coding/Shell/'
+alias cdw="cd ~/www"
