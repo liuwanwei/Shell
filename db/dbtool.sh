@@ -19,7 +19,7 @@ function import_db()
 
 function usage()
 {
-    echo "Usage: dbtool.sh -d db_name {-i|-e} -u db_user_name" >&2
+    echo "Usage: $0 -d db_name {-i|-e} -u db_user_name" >&2
     echo "  -d: 数据库名字"
     echo "  -e: 从数据库导出数据"
     echo "  -i: 导入数据到数据库，默认导入 ./backup.sql 文件，支持 -b 参数设置"
