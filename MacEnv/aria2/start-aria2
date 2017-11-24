@@ -1,0 +1,7 @@
+#!/bin/bash
+
+conf=$( cd "$(dirname $0)" && pwd)'/aria2.conf'
+
+echo $conf
+
+/usr/local/bin/aria2c --conf-path=$conf -D
