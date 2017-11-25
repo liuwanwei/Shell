@@ -4,6 +4,7 @@ alias sshw='ssh root@121.41.26.86'
 alias sshx='ssh root@115.29.148.60'
 alias sshr='ssh msbox@tv.haly12333.org.cn'
 alias sshp='ssh pi@192.168.1.243'
+alias sshb='ssh -p 29928 root@65.49.223.13'
 
 # shmetro testing server: web server
 alias sshd='ssh -p 22 ubuntu@180.169.194.155'
