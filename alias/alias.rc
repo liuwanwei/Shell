@@ -31,3 +31,7 @@ alias cdc="cd ~/Coding"
 alias cdn="cd ~/Coding/nodejs"
 alias cds='cd ~/Coding/Shell/'
 alias cdw="cd ~/www"
+
+# set shadowsocks console proxy 
+alias proxy='export all_proxy=socks5://127.0.0.1:1080 && echo $all_proxy'
+alias unproxy='unset all_proxy && echo $all_proxy'
