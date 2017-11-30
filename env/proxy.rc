@@ -1,0 +1,8 @@
+
+# set shadowsocks console proxy 
+alias proxy='export all_proxy=socks5://127.0.0.1:1080 && echo $all_proxy'
+alias unproxy='unset all_proxy && echo $all_proxy'
+
+# proxy trait: make php don't change /abc.html to http://host.com/abc.html 
+export HTTP_PROXY_REQUEST_FULLURI=0
+export HTTPS_PROXY_REQUEST_FULLURI=0
