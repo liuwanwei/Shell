@@ -1,14 +1,13 @@
 
 # set 'enable shadowsocks console proxy' alias
-cmd='export all_proxy=socks5://127.0.0.1:1080'
-cmd="$cmd && export http_proxy=http://127.0.0.1:1087"
-cmd="$cmd && export https_proxy=$http_proxy"
-cmd="$cmd && echo $https_proxy"
-alias proxy=$cmd
+
+alias proxy='export all_proxy=socks5://127.0.0.1:1080 && export http_proxy=http://127.0.0.1:1087 && export https_proxy=http://127.0.0.1:1087'
 
 # set 'disable shadowsocks console proxy' alias
-uncmd='unset all_proxy && unset http_proxy && unset https_proxy'
-alias unproxy=$uncmd
+alias unproxy='unset all_proxy && unset http_proxy && unset https_proxy'
+
+# set 'show shadowsocks console proxy' alias
+alias showproxy='echo "all_proxy: $all_proxy" && echo "https_proxy: $https_proxy"'
 
 # proxy trait: make php don't change /abc.html to http://host.com/abc.html
 # some proxy may need this trait disabled 
