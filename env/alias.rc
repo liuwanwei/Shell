@@ -29,7 +29,7 @@ alias wb='safari https://weibo.com'
 # for directory
 alias cdc="cd ~/Coding"
 alias cdn="cd ~/Coding/nodejs"
-alias cds='cd ~/Coding/Shell/'
+alias cds='cd ~/Coding/shell/'
 alias cdw="cd ~/www"
 
 # set shadowsocks console proxy 
