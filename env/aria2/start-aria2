@@ -1,7 +1,40 @@
 #!/bin/bash
 
-conf=$( cd "$(dirname $0)" && pwd)'/aria2.conf'
+function start(){
+    conf=$( cd "$(dirname $0)" && pwd)'/aria2.conf'
 
-echo $conf
+    echo $conf
 
-/usr/local/bin/aria2c --conf-path=$conf -D
+    /usr/local/bin/aria2c --conf-path=$conf -D
+}
+
+function stop(){
+    process=$(ps ax |grep aria2c | grep -v grep)
+    
+    if [[ -n $process ]];then
+        pid=$(echo $process | awk '{print $1;}')
+        kill -9 $pid
+        echo $pid" is killed"
+    else
+        echo "no aria2c process"
+    fi
+}
+
+function usage(){
+    echo "Usage: $0 start|stop"
+    exit 1
+}
+
+if [ $# -lt 1 ];then
+    usage
+fi
+
+if [ $1 = 'start' ];then
+    start
+elif [ $1 = 'stop' ];then
+    stop
+else
+    usage
+fi
+
+
