@@ -1,37 +1,54 @@
 #!/bin/bash
 
-function start(){
-    conf=$( cd "$(dirname $0)" && pwd)'/aria2.conf'
+pid=''
 
-    echo $conf
-
-    /usr/local/bin/aria2c --conf-path=$conf -D
-}
-
-function stop(){
+function getProcess(){
     process=$(ps ax |grep aria2c | grep -v grep)
     
     if [[ -n $process ]];then
         pid=$(echo $process | awk '{print $1;}')
-        kill -9 $pid
-        echo $pid" is killed"
-    else
-        echo "no aria2c process"
     fi
 }
 
+function start(){
+    if [[ -n $pid ]];then
+        echo "process already exist:"$pid
+        exit 1
+    fi
+
+    conf=$( cd "$(dirname $0)" && pwd)'/aria2.conf'
+    /usr/local/bin/aria2c --conf-path=$conf -D
+
+    getProcess
+    if [[ -n $pid ]];then
+        echo "process start ok: "$conf
+    else
+        echo "start failed, please check the reason"
+    fi
+}
+
+function stop(){
+    if [[ -z $pid ]];then
+        echo "no aria2c process found"
+    else
+        kill -9 $pid
+        echo $pid" is killed"
+    fi
+}
 function usage(){
+    if [[ -n $pid ]];then
+        echo "aria2c exist and pid is: "$pid
+    fi
+
     echo "Usage: $0 start|stop"
     exit 1
 }
 
-if [ $# -lt 1 ];then
-    usage
-fi
+getProcess
 
-if [ $1 = 'start' ];then
+if [[ $1 = 'start' ]];then
     start
-elif [ $1 = 'stop' ];then
+elif [[ $1 = 'stop' ]];then
     stop
 else
     usage
