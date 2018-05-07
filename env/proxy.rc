@@ -1,3 +1,9 @@
+# 打开关闭控制台翻墙代理命令，使用时，通过 source 命令导入到用户登录 xxx.rc 文件中，如：
+# source /Users/sungeo/Coding/shell/env/proxy.rc
+# 在控制台中:
+#   通过 proxy 打开控制台网络代理（通过 curl ip.sb 查看外网地址是否改变），
+#   通过 unproxy 关闭网络代理
+#   通过 showproxy 查看控制台网络代理配置
 
 # set 'enable shadowsocks console proxy' alias
 

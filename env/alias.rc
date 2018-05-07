@@ -1,4 +1,7 @@
-# for ssh
+# 开发中常用缩写命令定义，使用时，通过 source 命令导入到用户登录 xxx.rc 文件中，如：
+# source /Users/sungeo/Coding/shell/env/alias.rc
+
+
 alias sshj='ssh root@120.25.104.45'
 alias sshw='ssh root@121.41.26.86'
 alias sshx='ssh root@115.29.148.60'
@@ -20,6 +23,9 @@ alias gst='git status'
 alias ip='ifconfig'
 alias p3='python3'
 
+# need install codecept globally, see: codeception.com
+alias cc='codecept'
+
 # for Mac
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias safari='open -a safari'
@@ -31,6 +37,7 @@ alias cdc="cd ~/Coding"
 alias cdn="cd ~/Coding/nodejs"
 alias cds='cd ~/Coding/shell/'
 alias cdw="cd ~/www"
+alias cdb="cd ~/BD.半点"
 
 # set shadowsocks console proxy 
 alias proxy='export all_proxy=socks5://127.0.0.1:1080 && echo $all_proxy'
