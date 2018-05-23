@@ -20,6 +20,8 @@ alias pull='git pull origin master'
 alias push='git push origin master'
 alias gst='git status'
 alias gdf='git diff'
+alias gcm='git commit -m'
+alias gad='git add'
 
 alias ip='ifconfig'
 alias p3='python3'
