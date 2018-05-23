@@ -19,6 +19,7 @@ alias sshdd='ssh -p 23 ubuntu@180.169.194.155'
 alias pull='git pull origin master'
 alias push='git push origin master'
 alias gst='git status'
+alias gdf='git diff'
 
 alias ip='ifconfig'
 alias p3='python3'
